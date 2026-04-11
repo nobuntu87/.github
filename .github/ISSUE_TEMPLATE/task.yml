@@ -1,5 +1,5 @@
 name: 🔧 Task
-labels: ["task"]
+labels: ["type:task"]
 title: "Task: "
 description: 作業単位（Feature を構成する単位）
 body:
