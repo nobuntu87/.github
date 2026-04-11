@@ -1,5 +1,5 @@
 name: ✨ Feature
-labels: ["feature"]
+labels: ["type:feature"]
 title: "Feature: "
 description: 機能単位（Epic を構成する単位）
 body:

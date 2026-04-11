@@ -1,5 +1,5 @@
 name: 🗺️ Epic
-labels: ["epic"]
+labels: ["type:epic"]
 title: "Epic: "
 description: 大項目（複数の機能をまとめる単位）
 body:
