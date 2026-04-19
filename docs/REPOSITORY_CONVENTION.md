@@ -63,23 +63,33 @@ infra-vps-setup
 
 ### General
 
-- [ ] Description を記述する
-- [ ] Topics を設定する（使用技術・用途など）
-- [ ] `Wikis` を無効化する（ドキュメントは `docs/` で管理）
+#### Features
+
+- [ ] `Wikis` は任意（ドキュメントは `docs/` で管理するため基本不要）
 - [ ] `Issues` を有効化する
+- [ ] `Discussions` を無効化する
 - [ ] `Projects` を有効化する
+- [ ] `Pull requests` を有効化する
+- [ ] `Pull request permissions` を `Collaborators only` に設定する
+
+#### Pull Requests
+
 - [ ] `Allow merge commits` を無効化する
-- [ ] `Allow squash merging` を有効化する（**デフォルトのみ**）
+- [ ] `Allow squash merging` を有効化する
 - [ ] `Allow rebase merging` を無効化する
 - [ ] `Automatically delete head branches` を有効化する
 
-### Collaborators & Teams
+#### Issues
+
+- [ ] `Auto-close issues with merged linked pull requests` を有効化する
+
+### Collaborators and teams
 
 - [ ] 必要なメンバー・チームにアクセス権を付与する
 
 ### Rulesets
 
-- [ ] [Rulesets](#3-rulesets) を設定する
+- [ ] Rules → Rulesets → New branch ruleset で `Protect main` を作成する（詳細は [Rulesets](#3-rulesets) を参照）
 
 ### Issueラベル
 
@@ -119,21 +129,23 @@ repository:username/app-news-aggregator is:issue is:open has:label
 
 `main` ブランチに対して以下のRulesetを設定します。
 
+Rules → Rulesets → New ruleset → **New branch ruleset** で作成します。
+
 ### 設定値
 
 | 項目 | 設定値 |
 | --- | --- |
 | Ruleset name | `Protect main` |
 | Enforcement status | `Active` |
-| Target branches | `main` |
+| Target branches | `Include default branch` |
 | Restrict deletions | ✅ |
 | Require linear history | ✅ |
 | Require a pull request before merging | ✅ |
-| └─ Required approvals | `1` |
+| └─ Required approvals | `0`（個人開発のため無効） |
 | └─ Dismiss stale pull request approvals when new commits are pushed | ✅ |
 | └─ Require review from Code Owners | ❌（個人開発のため無効。チーム開発移行時に有効化を検討） |
-| Require status checks to pass | ✅ |
-| └─ Required checks | CI（lintおよびbuildなど） |
+| └─ Allowed merge methods | Squash のみ有効（Merge・Rebase は無効） |
+| Require status checks to pass | ❌（個人開発のため無効。CI導入時に有効化を検討） |
 | Block force pushes | ✅ |
 
 ---
